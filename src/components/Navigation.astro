@@ -1,0 +1,53 @@
+---
+
+---
+
+<button
+  id="nav-toggle"
+  aria-label="Toggle Menu"
+  class="relative md:hidden flex flex-col justify-center items-center w-[24px] h-[24px]"
+>
+  <span
+    class="bg-[#2A2D36] block pointer-events-none transition-all duration-300 ease-out h-[2px] w-[24px]"
+  ></span>
+  <span
+    class="bg-[#2A2D36] block pointer-events-none transition-all duration-300 ease-out h-[2px] w-[24px] my-[6px]"
+  ></span>
+  <span
+    class="bg-[#2A2D36] block pointer-events-none transition-all duration-300 ease-out h-[2px] w-[24px]"
+  ></span>
+</button>
+<slot />
+
+<script>
+  ["DOMContentLoaded", "astro:after-swap"].forEach((event) => {
+    document.addEventListener(event, () => {
+      const menuButton = document.getElementById("nav-toggle");
+      const menu = document.getElementById("nav-menu");
+      const content = document.getElementById("content");
+
+      menuButton &&
+        menuButton.addEventListener("click", ({ target }) => {
+          const spans = target.querySelectorAll("span");
+          spans.forEach((span, index) => {
+            switch (index) {
+              case 0:
+                span.classList.toggle("rotate-45");
+                span.classList.toggle("translate-y-[8px]");
+                break;
+              case 1:
+                span.classList.toggle("opacity-0");
+                break;
+              default:
+                span.classList.toggle("-rotate-45");
+                span.classList.toggle("-translate-y-[8px]");
+                break;
+            }
+          });
+
+          menu.classList.toggle("translate-x-[-260px]");
+          content.classList.toggle("translate-x-[-260px]");
+        });
+    });
+  });
+</script>

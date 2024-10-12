@@ -1,0 +1,33 @@
+---
+
+---
+
+<header
+  id="nav-menu"
+  aria-expanded="false"
+  class="flex justify-between items-center flex-wrap fixed top-0 left-0 z-20 w-full px-[16px] lg:px-[24px] bg-white shadow-header_shadow xl:bg-transparent xl:shadow-none transition-[background,transform] duration-[0.3s] ease-in-out md:translate-x-0"
+>
+  <slot />
+</header>
+
+<script>
+  const debounce = (func, delay) => {
+    let timeout;
+    return function (...args) {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        func.apply(this, args);
+      }, delay);
+    };
+  };
+
+  const handleScroll = () => {
+    const header = document.getElementById("nav-menu");
+    header.classList[window.scrollY > 0 ? 'add' : 'remove']('xl:bg-white');
+    header.classList[window.scrollY > 0 ? 'remove' : 'add']('xl:bg-transparent');
+    header.classList[window.scrollY > 0 ? 'add' : 'remove']('xl:shadow-header_shadow');
+    header.classList[window.scrollY > 0 ? 'remove' : 'add']('xl:shadow-none');
+  };
+
+  window.addEventListener("scroll", debounce(handleScroll, 10));
+</script>

@@ -1,0 +1,895 @@
+---
+import Header from "../components/Header.astro";
+import Navigation from "../components/Navigation.astro";
+import Navbar from "../components/Navbar.astro";
+import Accordion from "../components/Accordion.astro";
+import Button from "../components/Button.astro";
+import Form from "../components/Form.astro";
+
+import "../styles/global.css";
+
+const sections = [
+  { href: "#home", title: "Home" },
+  { href: "#about", title: "About" },
+  { href: "#pricing", title: "Pricing" },
+  { href: "#contacts", title: "Contacts" },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to KinesioPaphos: Your Path to Strength and Mobility</title>
+    <meta name="description" content="KinesioPaphos offers expert kinesitherapy services in Paphos, helping clients restore mobility, build strength, and improve overall wellness through personalized movement therapy. Discover active and passive kinesitherapy, resistance training, stretching, and more.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;0,900;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/kinesio-paphos/favicon-48x48.png" sizes="48x48" />
+    <link rel="icon" type="image/svg+xml" href="/kinesio-paphos/favicon.svg" />
+    <link rel="shortcut icon" href="/kinesio-paphos/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/kinesio-paphos/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="KinesioPaphos" />
+    <link rel="manifest" href="/kinesio-paphos/site.webmanifest" />
+
+    <meta name="robots" content="nofollow noindex" />
+  </head>
+  <body>
+    <Header>
+      <a href="/kinesio-paphos/" class="block w-[237px] py-[4px]">
+        <img src="./logo.svg" width="237" height="48" alt="KinesioPaphos" />
+      </a>
+      <Navigation>
+        <Navbar sections={sections}>
+          <li class="mt-auto md:mt-0">
+            <a
+              href="tel:+35797748583"
+              class="flex justify-center align-center gap-[8px] text-[#2A2D36] py-[20px] px-[24px] lg:px-[36px] bg-[#A8EA06] md:bg-transparent relative hover:bg-[#2A2D36] md:hover:bg-transparent hover:text-[#A8EA06] transition-[background,color] duration-[0.3s] ease-in-out before:block before:absolute md:before:inset-[0_-16px_0_0] md:before:-skew-x-[20deg] md:before:bg-gradient-to-r md:before:[background-image:_linear-gradient(to_right,#2A2D36_0%,#2A2D36_49%,#A8EA06_49%,#A8EA06_100%)] md:before:bg-[length:480px_58px] before:bg-no-repeat before:z-[-1] md:before:bg-[-240px_center] hover:before:bg-[0_center] before:transition-background before:duration-[0.3s] before:ease-in-out"
+            >
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 18 18"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M16.0931 1.84148C16.006 1.76622 15.8999 1.71617 15.7864 1.69672C15.6729 1.67727 15.5563 1.68915 15.4491 1.73109L1.19953 7.30757C0.997578 7.3861 0.826605 7.52811 0.712348 7.71221C0.59809 7.89632 0.546733 8.11256 0.566007 8.32838C0.585281 8.5442 0.674143 8.74792 0.819215 8.90886C0.964287 9.06981 1.15772 9.17927 1.37039 9.22077L5.06249 9.9457V14.0625C5.06177 14.2867 5.12841 14.506 5.25377 14.6919C5.37914 14.8779 5.55746 15.0218 5.76562 15.1052C5.97346 15.1901 6.20202 15.2105 6.42159 15.1637C6.64117 15.1169 6.84159 15.0052 6.99679 14.843L8.7771 12.9966L11.6016 15.4687C11.8053 15.6495 12.0682 15.7495 12.3405 15.75C12.4599 15.7499 12.5785 15.7312 12.6921 15.6944C12.8777 15.6356 13.0446 15.5291 13.1762 15.3856C13.3079 15.2421 13.3996 15.0667 13.4423 14.8767L16.2963 2.46093C16.3219 2.34896 16.3164 2.23215 16.2806 2.12302C16.2448 2.0139 16.18 1.91657 16.0931 1.84148ZM11.7942 4.37273L5.49492 8.88398L2.00742 8.19984L11.7942 4.37273ZM6.18749 14.0625V10.7241L7.93054 12.2526L6.18749 14.0625ZM12.3419 14.625L6.52851 9.52734L14.8957 3.53038L12.3419 14.625Z"
+                  fill="currentColor"></path>
+              </svg>
+              <span
+                class="text-[14px] font-bold leading-[18px] tracking-[1px]"
+                >+357 97 74 8583</span
+              >
+            </a>
+          </li>
+        </Navbar>
+      </Navigation>
+    </Header>
+
+    <div
+      id="content"
+      class="transition-[transform] duration-[0.3s] ease-in-out md:translate-x-0"
+    >
+      <section
+        id="home"
+        class="bg-[url('/img-hero-bg.webp')] bg-cover bg-center-top relative after:[clip-path:polygon(0%_100%,100%_0%,100%_100%)] after:bg-white after:absolute after:bottom-[-1px] after:left-0 after:right-0 after:h-[24px] sm:after:h-[54px] md:after:h-[132px] after:z-10"
+      >
+        <div
+          class="container m-auto sm:flex sm:flex-row-reverse sm:items-center"
+        >
+          <div
+            class="flex-1 bg-white sm:bg-transparent px-[16px] pt-[96px] pb-[48px] sm:py-0"
+          >
+            <h1
+              class="text-[#2A2D36] text-[56px] md:text-[64px] lg:text-[76px] xl:text-[96px] leading-none font-black italic uppercase tracking-[-2px] [-webkit-text-stroke:1px_#2A2D36]"
+            >
+              <span class="block text-transparent">Healthy</span>
+              Movement
+            </h1>
+            <p
+              class="text-[#2A2D36] text-[16px] md:text-[24px] leading-[140%] max-w-[480px] my-[24px]"
+            >
+              We will do our best to help you get rid of your back and joint
+              pain
+            </p>
+            <p>
+              <Button id="btn-hero" href="#contacts"> Get in Touch </Button>
+            </p>
+          </div>
+          <div class="flex justify-center flex-1">
+            <img
+              src="./img-hero.webp"
+              width="412"
+              height="847"
+              alt="hero"
+              class="sm:mt-[58px] xl:mt-0 h-[600px] sm:h-[740px] lg:h-[calc(100vh_-_58px)] xl:h-[100vh] lg:w-[540px] object-cover object-right-top"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="px-[16px] py-[48px] lg:py-[96px]">
+        <div class="container m-auto">
+          <h2
+            class="text-transparent text-[42px] md:text-[56px] lg:text-[64px] leading-none font-black italic uppercase tracking-[-2px] [-webkit-text-stroke:1px_#2A2D36] mb-[24px]"
+          >
+            <span class="block text-[#2A2D36]">JOIN THE CLUB</span>
+            #KINESIOPaphos
+          </h2>
+
+          <div class="md:flex md:gap-[36px] xl:gap-[64px]">
+            <div class="flex-1">
+              <p class="leading-[160%] mb-[24px]">
+                <strong>Kinesitherapy</strong>, also known as therapeutic
+                exercise or movement therapy, is a specialized form of physical
+                therapy designed to restore and enhance mobility, strength, and
+                overall physical function. Through a series of targeted
+                exercises, kinesitherapy helps individuals recover from
+                injuries, manage chronic conditions, and improve their physical
+                health. It goes beyond simply addressing symptoms by focusing on
+                correcting underlying movement dysfunctions for long-lasting
+                results. We are proud to offer personalized kinesitherapy
+                programs right here on our site, tailored to meet your unique
+                rehabilitation and fitness goals.
+              </p>
+
+              <Accordion
+                title="Active Kinesitherapy"
+                content="In our active kinesitherapy sessions, you will engage in exercises performed independently under professional guidance. These exercises are designed to strengthen muscles, enhance joint flexibility, and improve coordination. Whether you’re recovering from an injury or looking to enhance your mobility, our therapists will guide you step-by-step to ensure safe and effective rehabilitation."
+                isOpen={true}
+              />
+
+              <Accordion
+                title="Passive Kinesitherapy"
+                content="For individuals with limited mobility or post-surgery recovery, we offer passive kinesitherapy, where our therapists carefully manipulate your limbs and joints through specific movements. This technique helps maintain joint flexibility and muscle tone, allowing you to progress toward active exercises at a pace that suits your needs."
+                isOpen={false}
+              />
+
+              <Accordion
+                title="Resistance Training"
+                content="Our resistance training programs incorporate weights, resistance bands, and bodyweight exercises to build strength and endurance. Whether your goal is to improve muscle mass, reduce pain, or enhance overall functionality, we’ll create a custom resistance training plan that meets your physical capabilities and goals."
+                isOpen={false}
+              />
+
+              <Accordion
+                title="Stretching and Flexibility Exercises"
+                content="Increase your range of motion and relieve muscle tension with our stretching and flexibility exercises. These sessions are designed to loosen stiff muscles and improve joint flexibility, reducing your risk of injury while enhancing overall mobility. We integrate these exercises into our kinesitherapy plans to ensure a balanced approach to recovery and performance."
+                isOpen={false}
+              />
+
+              <p>
+                <Button id="btn-seo" href="#contacts"> Start today </Button>
+              </p>
+            </div>
+            <div
+              class="mt-[24px] md:mt-0 md:w-[300px] bg-[#2A2D36] flex flex-col justify-between"
+            >
+              <div class="py-[36px] px-[42px] text-white">
+                <div>
+                  <svg
+                    width="48"
+                    height="48"
+                    viewBox="0 0 48 48"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M24 0C19.2533 0 14.6131 1.40758 10.6663 4.04473C6.71954 6.68188 3.6434 10.4302 1.8269 14.8156C0.0103988 19.201 -0.464881 24.0266 0.461164 28.6822C1.38721 33.3377 3.67299 37.6141 7.02945 40.9706C10.3859 44.327 14.6623 46.6128 19.3178 47.5388C23.9734 48.4649 28.799 47.9896 33.1844 46.1731C37.5698 44.3566 41.3181 41.2805 43.9553 37.3337C46.5924 33.3869 48 28.7467 48 24C47.9933 17.6369 45.4626 11.5363 40.9631 7.03686C36.4637 2.53744 30.3631 0.00671958 24 0ZM24 44.3077C19.9835 44.3077 16.0572 43.1167 12.7177 40.8852C9.37808 38.6538 6.77519 35.4822 5.23815 31.7714C3.70111 28.0607 3.29895 23.9775 4.08252 20.0382C4.8661 16.0989 6.80022 12.4804 9.6403 9.64029C12.4804 6.80021 16.0989 4.86609 20.0382 4.08251C23.9775 3.29894 28.0607 3.7011 31.7714 5.23814C35.4822 6.77518 38.6538 9.37807 40.8852 12.7176C43.1167 16.0572 44.3077 19.9835 44.3077 24C44.3016 29.3841 42.1601 34.5458 38.353 38.353C34.5459 42.1601 29.3841 44.3016 24 44.3077ZM38.7692 24C38.7692 24.4896 38.5747 24.9592 38.2285 25.3054C37.8823 25.6516 37.4127 25.8461 36.9231 25.8461H24C23.5104 25.8461 23.0408 25.6516 22.6946 25.3054C22.3484 24.9592 22.1539 24.4896 22.1539 24V11.0769C22.1539 10.5873 22.3484 10.1177 22.6946 9.77149C23.0408 9.42527 23.5104 9.23077 24 9.23077C24.4896 9.23077 24.9592 9.42527 25.3054 9.77149C25.6517 10.1177 25.8462 10.5873 25.8462 11.0769V22.1538H36.9231C37.4127 22.1538 37.8823 22.3483 38.2285 22.6946C38.5747 23.0408 38.7692 23.5104 38.7692 24Z"
+                      fill="#A8EA06"></path>
+                  </svg>
+                </div>
+                <div
+                  class="mt-[24px] text-[24px] leading-[120%] font-black italic uppercase"
+                >
+                  HOURS
+                </div>
+                <div class="mt-[16px]">
+                  Monday - Saturday <br />10:00 - 18:00 <br />Sunday: Closed
+                </div>
+              </div>
+
+              <div class="py-[36px] px-[42px] text-white">
+                <div>
+                  <svg
+                    width="36"
+                    height="60"
+                    viewBox="0 0 36 60"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.848 60C3.466 60 2.313 59.538 1.389 58.614C0.464999 57.69 0.002 56.537 0 55.155V4.845C0 3.465 0.462999 2.313 1.389 1.389C2.315 0.465 3.468 0.002 4.848 0H31.155C32.535 0 33.687 0.463 34.611 1.389C35.535 2.315 35.998 3.468 36 4.848V55.155C36 56.535 35.538 57.688 34.614 58.614C33.69 59.54 32.536 60.002 31.152 60H4.848ZM3 46.614V55.152C3 55.614 3.192 56.038 3.576 56.424C3.96 56.81 4.383 57.002 4.845 57H31.155C31.615 57 32.038 56.808 32.424 56.424C32.81 56.04 33.002 55.616 33 55.152V46.614H3ZM18 54.114C18.62 54.114 19.16 53.884 19.62 53.424C20.08 52.964 20.31 52.425 20.31 51.807C20.31 51.189 20.08 50.649 19.62 50.187C19.16 49.725 18.62 49.496 18 49.5C17.38 49.504 16.84 49.734 16.38 50.19C15.92 50.646 15.69 51.186 15.69 51.81C15.69 52.434 15.92 52.973 16.38 53.427C16.84 53.881 17.38 54.108 18 54.114ZM3 43.617H33V10.5H3V43.617ZM3 7.5H33V4.845C33 4.385 32.808 3.962 32.424 3.576C32.04 3.19 31.616 2.998 31.152 3H4.848C4.386 3 3.962 3.192 3.576 3.576C3.19 3.96 2.998 4.384 3 4.848V7.5Z"
+                      fill="#A8EA06"></path>
+                  </svg>
+                </div>
+                <div
+                  class="mt-[24px] text-[24px] leading-[120%] font-black italic uppercase"
+                >
+                  CONTACT
+                </div>
+                <div class="mt-[16px]">
+                  M: +357 97 74 8583 <br />E: <a
+                    href="mailto:info@kinesio_paphos.com"
+                    class="hover:underline">info@kinesio_paphos.com</a
+                  >
+                  <br /><a href="/kinesio-paphos/" target="_blank" class="hover:underline"
+                    >Fb</a
+                  > / <a href="/kinesio-paphos/" target="_blank" class="hover:underline">Tg</a>
+                  / <a
+                    href="https://www.instagram.com/kinesio_paphos"
+                    target="_blank"
+                    class="hover:underline">Inst</a>
+                </div>
+              </div>
+
+              <div class="py-[36px] px-[42px] text-white">
+                <div>
+                  <svg
+                    width="39"
+                    height="49"
+                    viewBox="0 0 39 49"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M19.25 28C17.5194 28 15.8277 27.4868 14.3888 26.5254C12.9499 25.5639 11.8283 24.1973 11.1661 22.5985C10.5038 20.9996 10.3305 19.2403 10.6681 17.543C11.0058 15.8456 11.8391 14.2865 13.0628 13.0628C14.2865 11.8391 15.8456 11.0058 17.543 10.6681C19.2403 10.3305 20.9996 10.5038 22.5985 11.1661C24.1974 11.8283 25.5639 12.9498 26.5254 14.3888C27.4868 15.8277 28 17.5194 28 19.25C27.9972 21.5698 27.0745 23.7938 25.4341 25.4341C23.7938 27.0745 21.5698 27.9972 19.25 28ZM19.25 14C18.2117 14 17.1966 14.3079 16.3333 14.8848C15.4699 15.4617 14.797 16.2816 14.3997 17.2409C14.0023 18.2002 13.8983 19.2558 14.1009 20.2742C14.3035 21.2926 14.8035 22.2281 15.5377 22.9623C16.2719 23.6965 17.2074 24.1966 18.2258 24.3991C19.2442 24.6017 20.2998 24.4977 21.2591 24.1004C22.2184 23.703 23.0384 23.0301 23.6152 22.1667C24.1921 21.3034 24.5 20.2884 24.5 19.25C24.4986 17.858 23.9451 16.5235 22.9608 15.5392C21.9765 14.555 20.642 14.0014 19.25 14Z"
+                      fill="#A8EA06"></path>
+                    <path
+                      d="M19.25 49L4.48701 31.5893C4.28187 31.3278 4.07887 31.0647 3.87801 30.8C1.3575 27.4774 -0.00468026 23.4204 1.20823e-05 19.25C1.20823e-05 14.1446 2.02813 9.24827 5.63821 5.6382C9.24828 2.02812 14.1446 0 19.25 0C24.3554 0 29.2517 2.02812 32.8618 5.6382C36.4719 9.24827 38.5 14.1446 38.5 19.25C38.5041 23.4184 37.1426 27.4734 34.6238 30.7948L34.622 30.8C34.622 30.8 34.097 31.4895 34.0183 31.5823L19.25 49ZM6.67276 28.6912C6.67276 28.6912 7.08051 29.2302 7.17326 29.3457L19.25 43.589L31.3425 29.3265C31.4195 29.2302 31.829 28.6877 31.8308 28.686C33.8909 25.972 35.0042 22.6573 35 19.25C35 15.0728 33.3406 11.0668 30.3869 8.11307C27.4332 5.15937 23.4272 3.5 19.25 3.5C15.0729 3.5 11.0668 5.15937 8.11308 8.11307C5.15938 11.0668 3.50001 15.0728 3.50001 19.25C3.49569 22.6595 4.61029 25.9763 6.67276 28.6912Z"
+                      fill="#A8EA06"></path>
+                  </svg>
+                </div>
+                <div
+                  class="mt-[24px] text-[24px] leading-[120%] font-black italic uppercase"
+                >
+                  LOCATION
+                </div>
+                <div class="mt-[16px]">
+                  <a
+                    href="https://maps.app.goo.gl/iLapRSaoDJdoCvHD8"
+                    target="_blank"
+                    class="hover:underline">Fokidos 10 <br />Paphos, Cyprus</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="pricing">
+        <div
+          class="relative lg:flex bg-[#F6F6F6] before:[clip-path:polygon(0%_0%,100%_0%,0%_100%)] before:bg-white before:absolute before:top-[-1px] before:left-0 before:right-0 before:h-[24px] sm:before:h-[54px] lg:before:h-[122px] before:z-10 after:[clip-path:polygon(0%_100%,100%_0%,100%_100%)] after:bg-white after:absolute after:bottom-[-1px] after:left-0 after:right-0 after:h-[24px] sm:after:h-[54px] lg:after:h-[122px] after:z-10"
+        >
+          <div class="lg:flex-1 lg:pt-[60px]">
+            <picture>
+              <source srcset="./img-price.webp" type="image/webp" />
+              <source srcset="./img-price.png" type="image/png" />
+              <img
+                src="./img-price.webp"
+                height="641"
+                width="872"
+                alt="Trial kinesitherapy session"
+                title="Trial kinesitherapy session"
+                class="h-[100%] object-cover object-right-top"
+                loading="lazy"
+              />
+            </picture>
+          </div>
+          <div
+            class="lg:flex-1 flex items-center px-[16px] pt-[48px] pb-[56px] lg:pl-[30px] lg:py-[120px] xl:pl-[60px]"
+          >
+            <div class="max-w-[480px]">
+              <h2
+                class="text-transparent text-[42px] md:text-[56px] lg:text-[64px] leading-[120%] font-black italic uppercase tracking-[-2px] [-webkit-text-stroke:1px_#2A2D36] mb-[24px]"
+              >
+                <span class="block text-[#2A2D36]">Trial</span>
+                kinesitherapy session
+              </h2>
+              <p
+                class="text-[24px] lg:text-[32px] text-[#2A2D36] leading-[120%] font-black italic uppercase mb-[36px] lg:mb-[48px]"
+              >
+                FREE
+              </p>
+              <p>
+                <Button id="btn-trial" href="#contacts" subscript="Trial">
+                  Apply Now
+                </Button>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="px-[16px] py-[48px] lg:py-[64px]">
+          <div class="container m-auto">
+            <h2
+              class="text-[42px] md:text-[56px] lg:text-[64px] text-[#2A2D36] leading-[120%] font-black italic uppercase tracking-[-2px] [-webkit-text-stroke:1px_#2A2D36] mb-[24px] md:text-center mb-[32px] lg:mb-[48px]"
+            >
+              Prices
+            </h2>
+            <div
+              class="flex flex-wrap gap-x-[24px] justify-center lg:grid lg:grid-cols-3 lg:gap-x-0 lg:my-[72px]"
+            >
+              <div
+                class="bg-[#F6F6F6] px-[36px] py-[24px] xl:px-[64px] lg:py-[48px] sm:basis-[calc(50%_-_12px)] lg:basis-0 mb-[24px] sm:mb-0"
+              >
+                <h3
+                  class="text-[#2A2D36] text-[36px] lg:text-[48px] leading-[120%] font-black italic uppercase tracking-[-2px] [-webkit-text-stroke:1px_#2A2D36] mb-[16px]"
+                >
+                  Fortnight
+                </h3>
+                <p
+                  class="text-[#2A2D36] text-[36px] lg:text-[48px] leading-[120%] font-black italic uppercase tracking-[-2px]"
+                >
+                  <sup class="text-[60%] mr-[2px]">€</sup>350
+                </p>
+                <ul class="my-[36px]">
+                  <li class="flex gap-[8px] mb-[20px]">
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9 16.1701L4.83 12.0001L3.41 13.4101L9 19.0001L21 7.00009L19.59 5.59009L9 16.1701Z"
+                        fill="#A8EA06"></path>
+                    </svg>
+                    <span>6 Training Consultations</span>
+                  </li>
+                  <li class="flex gap-[8px] mb-[20px]">
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9 16.1701L4.83 12.0001L3.41 13.4101L9 19.0001L21 7.00009L19.59 5.59009L9 16.1701Z"
+                        fill="#A8EA06"></path>
+                    </svg>
+                    <span>Personalised exercise program</span>
+                  </li>
+                  <li class="flex gap-[8px] mb-[20px]">
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9 16.1701L4.83 12.0001L3.41 13.4101L9 19.0001L21 7.00009L19.59 5.59009L9 16.1701Z"
+                        fill="#A8EA06"></path>
+                    </svg>
+                    <span>Personal rehabilitation therapist</span>
+                  </li>
+                  <li class="flex gap-[8px]">
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9 16.1701L4.83 12.0001L3.41 13.4101L9 19.0001L21 7.00009L19.59 5.59009L9 16.1701Z"
+                        fill="#A8EA06"></path>
+                    </svg>
+                    <span>Massage</span>
+                  </li>
+                </ul>
+                <p>
+                  <Button
+                    id="btn-fortnight"
+                    href="#contacts"
+                    subscript="Fortnight"
+                  >
+                    Join Now
+                  </Button>
+                </p>
+              </div>
+              <div
+                class="mb-[24px] lg:my-[-36px] bg-[#2A2D36] px-[36px] py-[24px] xl:px-[64px] lg:py-[48px] text-white sm:basis-[50%] lg:basis-0 order-first lg:order-none"
+              >
+                <h3
+                  class="text-transparent text-[36px] lg:text-[48px] leading-[120%] font-black italic uppercase tracking-[-2px] [-webkit-text-stroke:1px_#FFFFFF] mb-[16px]"
+                >
+                  ONE TIME
+                </h3>
+                <p
+                  class="text-[#A8EA06] text-[36px] lg:text-[48px] leading-[120%] font-black italic uppercase tracking-[-2px]"
+                >
+                  <sup class="text-[60%] mr-[2px]">€</sup>450
+                </p>
+                <ul class="my-[36px]">
+                  <li class="flex gap-[8px] mb-[20px]">
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9 16.1701L4.83 12.0001L3.41 13.4101L9 19.0001L21 7.00009L19.59 5.59009L9 16.1701Z"
+                        fill="#A8EA06"></path>
+                    </svg>
+                    <span>10 Training Consultations</span>
+                  </li>
+                  <li class="flex gap-[8px] mb-[20px]">
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9 16.1701L4.83 12.0001L3.41 13.4101L9 19.0001L21 7.00009L19.59 5.59009L9 16.1701Z"
+                        fill="#A8EA06"></path>
+                    </svg>
+                    <span>Personalised exercise program</span>
+                  </li>
+                  <li class="flex gap-[8px] mb-[20px]">
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9 16.1701L4.83 12.0001L3.41 13.4101L9 19.0001L21 7.00009L19.59 5.59009L9 16.1701Z"
+                        fill="#A8EA06"></path>
+                    </svg>
+                    <span>Personal rehabilitation therapist</span>
+                  </li>
+                  <li class="flex gap-[8px] mb-[20px]">
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9 16.1701L4.83 12.0001L3.41 13.4101L9 19.0001L21 7.00009L19.59 5.59009L9 16.1701Z"
+                        fill="#A8EA06"></path>
+                    </svg>
+                    <span>Scheduled check-up</span>
+                  </li>
+                  <li class="flex gap-[8px] mb-[20px]">
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9 16.1701L4.83 12.0001L3.41 13.4101L9 19.0001L21 7.00009L19.59 5.59009L9 16.1701Z"
+                        fill="#A8EA06"></path>
+                    </svg>
+                    <span>Recommendations</span>
+                  </li>
+                  <li class="flex gap-[8px]">
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9 16.1701L4.83 12.0001L3.41 13.4101L9 19.0001L21 7.00009L19.59 5.59009L9 16.1701Z"
+                        fill="#A8EA06"></path>
+                    </svg>
+                    <span>Massage</span>
+                  </li>
+                </ul>
+                <p>
+                  <Button
+                    id="btn-ontime"
+                    href="#contacts"
+                    subscript="One Time"
+                    color="white"
+                  >
+                    Join Now
+                  </Button>
+                </p>
+              </div>
+              <div
+                class="bg-[#F6F6F6] px-[36px] py-[24px] xl:px-[64px] lg:py-[48px] sm:basis-[calc(50%_-_12px)] lg:basis-0"
+              >
+                <h3
+                  class="text-[#2A2D36] text-[36px] lg:text-[48px] leading-[120%] font-black italic uppercase tracking-[-2px] [-webkit-text-stroke:1px_#2A2D36] mb-[16px]"
+                >
+                  MONTHLY
+                </h3>
+                <p
+                  class="text-[#2A2D36] text-[36px] lg:text-[48px] leading-[120%] font-black italic uppercase tracking-[-2px]"
+                >
+                  <sup class="text-[60%] mr-[2px]">€</sup>660
+                </p>
+                <ul class="my-[36px]">
+                  <li class="flex gap-[8px] mb-[20px]">
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9 16.1701L4.83 12.0001L3.41 13.4101L9 19.0001L21 7.00009L19.59 5.59009L9 16.1701Z"
+                        fill="#A8EA06"></path>
+                    </svg>
+                    <span>12 Training Consultations</span>
+                  </li>
+                  <li class="flex gap-[8px] mb-[20px]">
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9 16.1701L4.83 12.0001L3.41 13.4101L9 19.0001L21 7.00009L19.59 5.59009L9 16.1701Z"
+                        fill="#A8EA06"></path>
+                    </svg>
+                    <span>Personalised exercise program</span>
+                  </li>
+                  <li class="flex gap-[8px] mb-[20px]">
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9 16.1701L4.83 12.0001L3.41 13.4101L9 19.0001L21 7.00009L19.59 5.59009L9 16.1701Z"
+                        fill="#A8EA06"></path>
+                    </svg>
+                    <span>Personal rehabilitation therapist</span>
+                  </li>
+                  <li class="flex gap-[8px]">
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9 16.1701L4.83 12.0001L3.41 13.4101L9 19.0001L21 7.00009L19.59 5.59009L9 16.1701Z"
+                        fill="#A8EA06"></path>
+                    </svg>
+                    <span>Massage</span>
+                  </li>
+                </ul>
+                <p>
+                  <Button id="btn-monthly" href="#contacts" subscript="Monthly">
+                    Join Now
+                  </Button>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="relative md:grid md:grid-cols-3 before:[clip-path:polygon(0%_0%,100%_0%,0%_100%)] before:bg-white before:absolute before:top-[-1px] before:left-0 before:right-0 before:h-[24px] sm:before:h-[54px] lg:before:h-[122px] before:z-10 after:[clip-path:polygon(0%_100%,100%_0%,100%_100%)] after:bg-[#2A2D36] after:absolute after:bottom-[-1px] after:left-0 after:right-0 after:h-[24px] sm:after:h-[54px] lg:after:h-[122px] after:z-10"
+      >
+        <div>
+          <picture>
+            <source srcset="./img-gallery-1.webp" type="image/webp" />
+            <source srcset="./img-gallery-1.png" type="image/png" />
+            <img
+              src="./img-gallery-1.webp"
+              height="697"
+              width="465"
+              alt="Gallery 1"
+              title="Gallery 1"
+              class="w-[100%] md:h-[100%] md:object-cover"
+              loading="lazy"
+            />
+          </picture>
+        </div>
+        <div class="md:flex md:flex-col">
+          <div class="md:flex-1">
+            <picture>
+              <source srcset="./img-gallery-2.webp" type="image/webp" />
+              <source srcset="./img-gallery-2.png" type="image/png" />
+              <img
+                src="./img-gallery-2.webp"
+                height="336"
+                width="584"
+                alt="Gallery 2"
+                title="Gallery 2"
+                class="w-[100%] md:h-[100%] md:object-cover"
+                loading="lazy"
+              />
+            </picture>
+          </div>
+          <div class="md:flex-1">
+            <picture>
+              <source srcset="./img-gallery-3.webp" type="image/webp" />
+              <source srcset="./img-gallery-3.png" type="image/png" />
+              <img
+                src="./img-gallery-3.webp"
+                height="361"
+                width="584"
+                alt="Gallery 3"
+                title="Gallery 3"
+                class="w-[100%] md:h-[100%] md:object-cover"
+                loading="lazy"
+              />
+            </picture>
+          </div>
+        </div>
+        <div>
+          <picture>
+            <source srcset="./img-gallery-4.webp" type="image/webp" />
+            <source srcset="./img-gallery-4.png" type="image/png" />
+            <img
+              src="./img-gallery-4.webp"
+              height="697"
+              width="465"
+              alt="Gallery 4"
+              title="Gallery 4"
+              class="w-[100%] md:h-[100%] md:object-cover"
+              loading="lazy"
+            />
+          </picture>
+        </div>
+      </section>
+
+      <footer
+        id="contacts"
+        class="bg-[#2A2D36] px-[16px] pt-[48px] lg:pt-[96px] pb-[36px] lg:pb-[64px] text-white"
+      >
+        <div class="container m-auto">
+          <div class="md:flex md:gap-[36px] xl:gap-[64px]">
+            <div class="flex-1">
+              <h2
+                class="text-transparent text-[42px] md:text-[56px] lg:text-[64px] leading-none font-black italic uppercase tracking-[-2px] [-webkit-text-stroke:1px_#FFFFFF] mb-[24px]"
+              >
+                CONTACT US
+              </h2>
+              <Form>
+                <p>
+                  <input
+                    name="name"
+                    type="text"
+                    placeholder="Name"
+                    class="w-full bg-transparent py-[16px] md:text-[20px] text-white border-b border-b-white focus:outline-none focus:border-b-[#A8EA06] valid:border-b-[#A8EA06] transition-[border] duration-[0.3s] ease-in-out"
+                    required
+                  />
+                </p>
+                <p class="mt-[16px]">
+                  <input
+                    name="phone"
+                    type="tel"
+                    placeholder="Phone"
+                    class="w-full bg-transparent py-[16px] md:text-[20px] text-white border-b border-b-white focus:outline-none focus:border-b-[#A8EA06] valid:border-b-[#A8EA06] transition-[border] duration-[0.3s] ease-in-out"
+                    required
+                  />
+                </p>
+                <p class="mt-[16px]">
+                  <textarea
+                    name="message"
+                    id=""
+                    placeholder="Message"
+                    class="w-full bg-transparent py-[16px] md:text-[20px] text-white border-b border-b-white h-[180px] resize-none focus:outline-none focus:border-b-[#A8EA06] transition-[border] duration-[0.3s] ease-in-out"
+                  ></textarea>
+                </p>
+                <p class="mt-[16px]">
+                  <input
+                    id="subscription"
+                    name="subscription"
+                    type="hidden"
+                    value=""
+                  />
+                  <button
+                    class="group relative inline-flex items-center gap-[16px] text-[14px] lg:text-[16px] font-bold uppercase p-[16px] pr-[36px] md:p-[24px] md:pr-[48px] overflow-hidden isolate before:absolute before:inset-[0_75%_0_-1em] before:skew-x-[-20deg] before:bg-[#A8EA06] before:z-[-1] hover:before:right-[20px] before:transition-[right] duration-[0.3s] ease-in-out"
+                  >
+                    Send Now
+                    <svg
+                      class="group-hover:rotate-45 transition-[transform] duration-[0.3s] ease-in-out"
+                      width="13"
+                      height="13"
+                      viewBox="0 0 13 13"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M1 0V2H9.59L0 11.59L1.41 13L11 3.41V12H13V0H1Z"
+                        fill="#FFFFFF"></path>
+                    </svg>
+                  </button>
+                </p>
+              </Form>
+            </div>
+            <div
+              class="mt-[24px] md:mt-0 md:flex-1 flex flex-col justify-between"
+            >
+              <div
+                class="py-[24px] md:py-[36px] md:px-[42px] text-white md:flex md:gap-[16px] md:w-[360px] md:mx-auto"
+              >
+                <div>
+                  <svg
+                    width="48"
+                    height="48"
+                    viewBox="0 0 48 48"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M24 0C19.2533 0 14.6131 1.40758 10.6663 4.04473C6.71954 6.68188 3.6434 10.4302 1.8269 14.8156C0.0103988 19.201 -0.464881 24.0266 0.461164 28.6822C1.38721 33.3377 3.67299 37.6141 7.02945 40.9706C10.3859 44.327 14.6623 46.6128 19.3178 47.5388C23.9734 48.4649 28.799 47.9896 33.1844 46.1731C37.5698 44.3566 41.3181 41.2805 43.9553 37.3337C46.5924 33.3869 48 28.7467 48 24C47.9933 17.6369 45.4626 11.5363 40.9631 7.03686C36.4637 2.53744 30.3631 0.00671958 24 0ZM24 44.3077C19.9835 44.3077 16.0572 43.1167 12.7177 40.8852C9.37808 38.6538 6.77519 35.4822 5.23815 31.7714C3.70111 28.0607 3.29895 23.9775 4.08252 20.0382C4.8661 16.0989 6.80022 12.4804 9.6403 9.64029C12.4804 6.80021 16.0989 4.86609 20.0382 4.08251C23.9775 3.29894 28.0607 3.7011 31.7714 5.23814C35.4822 6.77518 38.6538 9.37807 40.8852 12.7176C43.1167 16.0572 44.3077 19.9835 44.3077 24C44.3016 29.3841 42.1601 34.5458 38.353 38.353C34.5459 42.1601 29.3841 44.3016 24 44.3077ZM38.7692 24C38.7692 24.4896 38.5747 24.9592 38.2285 25.3054C37.8823 25.6516 37.4127 25.8461 36.9231 25.8461H24C23.5104 25.8461 23.0408 25.6516 22.6946 25.3054C22.3484 24.9592 22.1539 24.4896 22.1539 24V11.0769C22.1539 10.5873 22.3484 10.1177 22.6946 9.77149C23.0408 9.42527 23.5104 9.23077 24 9.23077C24.4896 9.23077 24.9592 9.42527 25.3054 9.77149C25.6517 10.1177 25.8462 10.5873 25.8462 11.0769V22.1538H36.9231C37.4127 22.1538 37.8823 22.3483 38.2285 22.6946C38.5747 23.0408 38.7692 23.5104 38.7692 24Z"
+                      fill="#A8EA06"></path>
+                  </svg>
+                </div>
+                <div>
+                  <div
+                    class="mt-[24px] md:mt-[8px] text-[24px] leading-[120%] font-black italic uppercase"
+                  >
+                    HOURS
+                  </div>
+                  <div class="mt-[16px] leading-[32px]">
+                    Monday - Saturday <br />10:00 - 18:00 <br />Sunday: Closed
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="py-[24px] md:py-[36px] md:px-[42px] text-white md:flex md:gap-[16px] md:w-[360px] md:mx-auto"
+              >
+                <div>
+                  <svg
+                    width="36"
+                    height="60"
+                    viewBox="0 0 36 60"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.848 60C3.466 60 2.313 59.538 1.389 58.614C0.464999 57.69 0.002 56.537 0 55.155V4.845C0 3.465 0.462999 2.313 1.389 1.389C2.315 0.465 3.468 0.002 4.848 0H31.155C32.535 0 33.687 0.463 34.611 1.389C35.535 2.315 35.998 3.468 36 4.848V55.155C36 56.535 35.538 57.688 34.614 58.614C33.69 59.54 32.536 60.002 31.152 60H4.848ZM3 46.614V55.152C3 55.614 3.192 56.038 3.576 56.424C3.96 56.81 4.383 57.002 4.845 57H31.155C31.615 57 32.038 56.808 32.424 56.424C32.81 56.04 33.002 55.616 33 55.152V46.614H3ZM18 54.114C18.62 54.114 19.16 53.884 19.62 53.424C20.08 52.964 20.31 52.425 20.31 51.807C20.31 51.189 20.08 50.649 19.62 50.187C19.16 49.725 18.62 49.496 18 49.5C17.38 49.504 16.84 49.734 16.38 50.19C15.92 50.646 15.69 51.186 15.69 51.81C15.69 52.434 15.92 52.973 16.38 53.427C16.84 53.881 17.38 54.108 18 54.114ZM3 43.617H33V10.5H3V43.617ZM3 7.5H33V4.845C33 4.385 32.808 3.962 32.424 3.576C32.04 3.19 31.616 2.998 31.152 3H4.848C4.386 3 3.962 3.192 3.576 3.576C3.19 3.96 2.998 4.384 3 4.848V7.5Z"
+                      fill="#A8EA06"></path>
+                  </svg>
+                </div>
+                <div>
+                  <div
+                    class="mt-[24px] md:mt-[16px] md:mb-[16px] text-[24px] leading-[120%] font-black italic uppercase"
+                  >
+                    CONTACT
+                  </div>
+                  <div class="mt-[16px] leading-[32px]">
+                    M: +357 97 74 8583 <br />E: <a
+                      href="mailto:info@kinesio_paphos.com"
+                      class="hover:underline">info@kinesio_paphos.com</a
+                    >
+                    <br /><a href="/kinesio-paphos/" target="_blank" class="hover:underline"
+                      >Fb</a
+                    > / <a href="/kinesio-paphos/" target="_blank" class="hover:underline"
+                      >Tg</a
+                    > / <a
+                      href="https://www.instagram.com/kinesio_paphos"
+                      target="_blank"
+                      class="hover:underline">Inst</a>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="py-[24px] md:py-[36px] md:px-[42px] text-white md:flex md:gap-[16px] md:w-[360px] md:mx-auto"
+              >
+                <div>
+                  <svg
+                    width="39"
+                    height="49"
+                    viewBox="0 0 39 49"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M19.25 28C17.5194 28 15.8277 27.4868 14.3888 26.5254C12.9499 25.5639 11.8283 24.1973 11.1661 22.5985C10.5038 20.9996 10.3305 19.2403 10.6681 17.543C11.0058 15.8456 11.8391 14.2865 13.0628 13.0628C14.2865 11.8391 15.8456 11.0058 17.543 10.6681C19.2403 10.3305 20.9996 10.5038 22.5985 11.1661C24.1974 11.8283 25.5639 12.9498 26.5254 14.3888C27.4868 15.8277 28 17.5194 28 19.25C27.9972 21.5698 27.0745 23.7938 25.4341 25.4341C23.7938 27.0745 21.5698 27.9972 19.25 28ZM19.25 14C18.2117 14 17.1966 14.3079 16.3333 14.8848C15.4699 15.4617 14.797 16.2816 14.3997 17.2409C14.0023 18.2002 13.8983 19.2558 14.1009 20.2742C14.3035 21.2926 14.8035 22.2281 15.5377 22.9623C16.2719 23.6965 17.2074 24.1966 18.2258 24.3991C19.2442 24.6017 20.2998 24.4977 21.2591 24.1004C22.2184 23.703 23.0384 23.0301 23.6152 22.1667C24.1921 21.3034 24.5 20.2884 24.5 19.25C24.4986 17.858 23.9451 16.5235 22.9608 15.5392C21.9765 14.555 20.642 14.0014 19.25 14Z"
+                      fill="#A8EA06"></path>
+                    <path
+                      d="M19.25 49L4.48701 31.5893C4.28187 31.3278 4.07887 31.0647 3.87801 30.8C1.3575 27.4774 -0.00468026 23.4204 1.20823e-05 19.25C1.20823e-05 14.1446 2.02813 9.24827 5.63821 5.6382C9.24828 2.02812 14.1446 0 19.25 0C24.3554 0 29.2517 2.02812 32.8618 5.6382C36.4719 9.24827 38.5 14.1446 38.5 19.25C38.5041 23.4184 37.1426 27.4734 34.6238 30.7948L34.622 30.8C34.622 30.8 34.097 31.4895 34.0183 31.5823L19.25 49ZM6.67276 28.6912C6.67276 28.6912 7.08051 29.2302 7.17326 29.3457L19.25 43.589L31.3425 29.3265C31.4195 29.2302 31.829 28.6877 31.8308 28.686C33.8909 25.972 35.0042 22.6573 35 19.25C35 15.0728 33.3406 11.0668 30.3869 8.11307C27.4332 5.15937 23.4272 3.5 19.25 3.5C15.0729 3.5 11.0668 5.15937 8.11308 8.11307C5.15938 11.0668 3.50001 15.0728 3.50001 19.25C3.49569 22.6595 4.61029 25.9763 6.67276 28.6912Z"
+                      fill="#A8EA06"></path>
+                  </svg>
+                </div>
+                <div>
+                  <div
+                    class="mt-[24px] md:mt-[8px] text-[24px] leading-[120%] font-black italic uppercase"
+                  >
+                    LOCATION
+                  </div>
+                  <div class="mt-[16px] leading-[32px]">
+                    <a
+                      href="https://maps.app.goo.gl/iLapRSaoDJdoCvHD8"
+                      target="_blank"
+                      class="hover:underline"
+                      >Fokidos 10 <br />Paphos, Cyprus</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
+
+<script>
+  const parallaxBackground = document.getElementById("home");
+
+  const handleScroll = () => {
+    const offset = window.scrollY;
+
+    const rect = parallaxBackground.getBoundingClientRect();
+    const isVisible = rect.top <= window.innerHeight && rect.bottom >= 0;
+
+    if (isVisible) {
+      parallaxBackground.style.backgroundPositionY = `${offset * 0.7}px`;
+    }
+  };
+
+  window.addEventListener("scroll", handleScroll);
+
+  function scrollTo(offset, callback) {
+    const fixedOffset = offset.toFixed();
+    const getScrollableDistance = () =>
+      document.documentElement.scrollHeight - window.innerHeight;
+    const adaptiveThreshold = Math.min(200, getScrollableDistance() * 0.1);
+
+    const onScroll = function () {
+      const scrollPosition = window.scrollY.toFixed();
+      const remainingScroll = getScrollableDistance() - scrollPosition;
+      const isNearBottom = remainingScroll <= adaptiveThreshold;
+
+      if (
+        Math.abs(scrollPosition - fixedOffset) <= adaptiveThreshold ||
+        isNearBottom
+      ) {
+        window.removeEventListener("scroll", onScroll);
+        callback();
+      }
+    };
+
+    window.addEventListener("scroll", onScroll);
+    onScroll();
+    window.scrollTo({
+      top: offset,
+      behavior: "smooth",
+    });
+  }
+
+  const buttons = document.querySelectorAll("[data-go-to]");
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const href = button.dataset.goTo;
+      const subscript= button.dataset.subscript;
+      const subscription = document.querySelector("#subscription");
+      subscription.value = subscript || "";
+
+      scrollTo(
+        document.querySelector(href).getBoundingClientRect().top -
+          document.body.getBoundingClientRect().top -
+          58,
+        () => {
+          const name = document.querySelector('[name="name"]');
+          name.focus();
+        }
+      );
+    });
+  });
+</script>

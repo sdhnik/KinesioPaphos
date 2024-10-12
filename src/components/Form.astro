@@ -1,0 +1,47 @@
+---
+
+---
+
+<form action="">
+  <slot />
+  <p id="notify" class="hidden mt-[16px] text-[#A8EA06]">
+    Your message has been sent
+  </p>
+</form>
+
+<script>
+  const form = document.querySelector("form");
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const data = new FormData(form);
+    const values = Object.fromEntries(data);
+
+    const token = `${import.meta.env.PUBLIC_TELEGRAM_TOKEN}`;
+    const chatId = "-4596081001";
+
+    let messageText = "<b>New order</b> \n===================\n";
+    messageText += "<b>Name:</b> " + values.name + " \n";
+    messageText += "<b>Phone:</b> " + values.phone + " \n";
+    if (values.message)
+      messageText += "<b>Message:</b> " + values.message + " \n";
+    if (values.subscription)
+      messageText += "<b>Subscription:</b> " + values.subscription + " \n";
+
+    const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&parse_mode=HTML&disable_web_page_preview=true&text=${encodeURIComponent(messageText)}`;
+
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        const notify = document.querySelector("#notify");
+        notify.classList.remove("hidden");
+        setTimeout(() => {
+          notify.classList.add("hidden");
+          form.reset();
+        }, 3000);
+      })
+      .catch((error) => {
+        console.error("There was a problem with the fetch operation:", error);
+      });
+  });
+</script>

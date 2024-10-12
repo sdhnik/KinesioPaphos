@@ -1,0 +1,78 @@
+---
+const { sections } = Astro.props;
+---
+
+<ul class="nav-links flex flex-col w-[260px] bg-white shadow-[inset_2px_0_6px_rgba(0,0,0,0.15)] pt-[4px] h-[100vh] md:flex-row md:self-stretch md:gap-[16px] lg:gap-[5vw] md:items-center absolute left-[100%] top-0 md:static md:mr-[-24px] md:w-auto md:bg-transparent md:shadow-none md:py-0 md:h-auto">
+  <li class="flex justify-center mb-[16px] px-[24px] md:hidden">
+    <a href="/" class="w-[237px] py-[4px]">
+      <img src='./logo.svg' width="237" height="48" alt="KinesioPaphos" />
+    </a>
+  </li>
+  {
+    sections.map((section, index) => (
+      <li class="block md:h-full">
+        <a href={section.href} class={`nav-link flex items-center relative text-[14px] font-light text-[#000] px-[24px] py-[8px] md:px-0 md:py-0 h-full uppercase before:absolute before:top-0 before:left-0 md:before:top-auto md:before:bottom-0 before:bg-[#A8EA06] before:w-[3px] before:h-0 md:before:h-[2px] before:transition-[width,height] before:duration-[0.3s] before:ease-in-out hover:before:h-full md:hover:before:h-[2px] md:hover:before:w-full ${index === 0 ? 'before:h-full md:before:w-full' : 'before:h-0 md:before:w-0'}`}>
+          {section.title}
+        </a>
+      </li>
+    ))
+  }
+  <slot />
+</ul>
+
+<script>
+  const sections = document.querySelectorAll("section");
+  const navLinks = document.querySelectorAll(".nav-links .nav-link");
+
+  const debounce = (func, delay) => {
+    let timeout;
+    return function (...args) {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        func.apply(this, args);
+      }, delay);
+    };
+  };
+
+  navLinks.forEach((link) => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+      const targetId = this.getAttribute("href");
+      window.scrollTo({
+        behavior: 'smooth',
+        top:
+          document.querySelector(targetId).getBoundingClientRect().top -
+          document.body.getBoundingClientRect().top -
+          58,
+      })
+    });
+  });
+
+  const handleScroll = () => {
+    let currentSection = "";
+
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.clientHeight;
+
+      if (window.scrollY >= sectionTop - 108 && window.scrollY < sectionTop + sectionHeight + 108) {
+        currentSection = section.getAttribute("id");
+      }
+    });
+
+    navLinks.forEach((link) => {
+      link.classList.remove("before:h-full");
+      link.classList.add("before:h-0");
+      link.classList.remove("md:before:w-full");
+      link.classList.add("md:before:w-0");
+      if (link.getAttribute("href") === `#${currentSection}`) {
+        link.classList.add("before:h-full");
+        link.classList.remove("before:h-0");
+        link.classList.add("md:before:w-full");
+        link.classList.remove("md:before:w-0");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", debounce(handleScroll, 100));
+</script>

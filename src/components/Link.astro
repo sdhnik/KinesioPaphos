@@ -1,0 +1,23 @@
+---
+// Props
+const { title, href, color } = Astro.props;
+---
+
+<a
+  href={href}
+  class="group relative inline-flex items-center gap-[16px] text-[14px] lg:text-[16px] font-bold uppercase p-[16px] pr-[36px] md:p-[24px] md:pr-[48px] overflow-hidden isolate before:absolute before:inset-[0_75%_0_-1em] before:skew-x-[-20deg] before:bg-[#A8EA06] before:z-[-1] hover:before:right-[20px] before:transition-[right] duration-[0.3s] ease-in-out"
+>
+  {title}
+  <svg
+    class="group-hover:rotate-45 transition-[transform] duration-[0.3s] ease-in-out"
+    width="13"
+    height="13"
+    viewBox="0 0 13 13"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M1 0V2H9.59L0 11.59L1.41 13L11 3.41V12H13V0H1Z"
+      fill={color || "#2A2D36"}></path>
+  </svg>
+</a>

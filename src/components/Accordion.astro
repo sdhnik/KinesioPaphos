@@ -1,0 +1,39 @@
+---
+// Props
+const { title, content, isOpen } = Astro.props;
+---
+
+<div class="accordion-item border-t border-t-[rgba(42,45,54,0.2)]">
+  <h2
+    class="accordion-item-header group flex justify-between items-center gap-[16px] w-full py-[24px] cursor-pointer focus:outline-none"
+  >
+    <span
+      class="accordion-item-title text-[24px] lg:text-[32px] text-[#2A2D36] leading-[120%] font-black italic uppercase"
+      >{title}</span
+    >
+    <span
+      class={`accordion-item-caret relative w-[36px] min-w-[36px] h-[36px] rounded-full bg-[#A8EA06] group-hover:scale-110 transition-[transform] duration-[0.3s] ease-in-out before:w-[14px] before:h-[2px] before:bg-[#2A2D36] before:absolute before:inset-0 before:m-auto after:w-[2px] after:h-[14px] after:bg-[#2A2D36] after:absolute after:inset-0 after:m-auto after:transition-[opacity] after:duration-[0.3s] after:ease-in-out ${isOpen ? "after:opacity-0" : ""}`}
+    ></span>
+  </h2>
+  <div
+    class={`accordion-item-content max-h-0 overflow-hidden transition-all duration-300 ${
+      isOpen ? "max-h-[400px]" : ""
+    }`}
+  >
+    <p class="text-gray-700 pb-[24px]">{content}</p>
+  </div>
+</div>
+
+<script>
+  const items = document.querySelectorAll(".accordion-item");
+
+  items.forEach((item, i) => {
+    const header = item.querySelector(".accordion-item-header");
+    header.addEventListener("click", () => {
+      const content = item.querySelector(".accordion-item-content");
+      const icon = item.querySelector(".accordion-item-caret");
+      content.classList.toggle("max-h-[400px]");
+      icon.classList.toggle("after:opacity-0");
+    });
+  });
+</script>
